@@ -3,29 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TecFagTilmeldingApp.Models;
 
-namespace TecFagTilmeldingApp.Codes
+namespace TecFagTilmeldingApp.Codes;
+
+internal class Teacher : Person
 {
-    internal class Teacher
+
+    public string Department { get; set; }
+
+    public Teacher (string firstName, string lastName, DateTime birthDate, string department) : base(firstName, lastName, birthDate)
     {
-
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        public DateTime BirthOfDate { get; set; }
-
-        public int Age { get; set; }
-
-        public string Afdeling { get; set; }
-
-        public Teacher (string firstName, string lastName, DateTime birthOfDate, int age, string afdeling)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            BirthOfDate = birthOfDate;
-            Age = age;
-            Afdeling = afdeling;
-        }
+        Department = department;
     }
 }

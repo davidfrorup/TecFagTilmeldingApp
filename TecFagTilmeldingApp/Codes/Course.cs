@@ -3,25 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TecFagTilmeldingApp.Models;
 
-namespace TecFagTilmeldingApp.Codes
+namespace TecFagTilmeldingApp.Codes;
+
+internal class Course
 {
-    internal class Course
+
+    public string Name { get; set; }
+
+    public PersonModel Teacher { get; set; }
+
+
+    public Course(string name, PersonModel teacher)
     {
 
-        public string courseName { get; set; }
-
-        public Teacher courseTeacher { get; set; }
-
-
-        public Course(string courseName, Teacher courseTeacher)
-        {
-
-            courseName = coursename;
-            courseTeacher = courseteacher;
-
-
-        }
+        Name = name;
+        Teacher = teacher;
 
     }
+
 }
