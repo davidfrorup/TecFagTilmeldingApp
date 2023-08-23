@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TecFagTilmeldingApp.Models;
+using static TecFagTilmeldingApp.Enums.CountryCodes;
 
 namespace TecFagTilmeldingApp.Codes;
 
-internal class Person
+internal abstract class Person
 {
 
     public PersonModel PersonalInfo { get; set; }
@@ -33,6 +34,48 @@ internal class Person
      {
          Age = new AgeConverter(birthDate).Age;
      } */
+
+
+    protected string ShowFullName()
+    {
+        return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}";
+    }
+
+    protected abstract string ShowAllInfo();
+
+    protected virtual string ShowAllInfo2()
+    {
+        return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}";
+    }
+
+    public virtual string GetInfo(List<Enrollment> enrollments)
+    {
+        return string.Empty; // Standardimplementering for Person; vil blive overskrevet i afledte klasser
+    }
+
+    public virtual string ShowHolidays()
+    {
+        return "Holydays not specified.";
+    }
+
+
+
+
+    public string ShowBirthDate(CountryCode format = CountryCode.EN)
+    {
+        DateTime birthDate = BirthDate;
+        if (format == CountryCode.DK)
+        {
+            return birthDate.ToString("dd-MM-yyyy");
+        }
+        else
+        {
+            return birthDate.ToString("yyyy-MM-dd");
+        }
+    }
+
+
+
 
 
 }

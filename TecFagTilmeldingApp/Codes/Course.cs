@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,5 +23,17 @@ internal class Course
         Teacher = teacher;
 
     }
+
+    public string WriteText(string valuetoDisplay)
+    {
+        return $"Hello {valuetoDisplay}";
+    }
+
+    public string WriteText(String valuetoDisplay, int alder)
+    {
+        return $"Hello {valuetoDisplay}, du er {alder}";
+    }
+
+
 
 }
