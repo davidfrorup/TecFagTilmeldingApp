@@ -8,4 +8,8 @@ namespace TecFagTilmeldingApp.Køretøjer;
 
 internal class PeriodiskSyn
 {
+
+    public const int SynInterval = 2;
+
+
 }

@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Animals\cat.wav" />
     <None Remove="Animals\dog.wav" />
+    <None Remove="MySounds\Mainlyden.wav" />
     <None Remove="MySounds\minlyd.wav" />
   </ItemGroup>
 
@@ -18,6 +19,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Animals\dog.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MySounds\Mainlyden.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="MySounds\minlyd.wav">
