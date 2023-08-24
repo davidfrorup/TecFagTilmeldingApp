@@ -12,7 +12,7 @@ internal class Student : Person
     public List<Course> Courses { get; } = new List<Course>();
     public Student (string firstName, string lastName, DateTime birthDate) : base (firstName, lastName, birthDate)
     {
-        string DefaultInfo = ShowAllInfo2();
+        //string DefaultInfo = ShowAllInfo2();
     }
 
     public void EnrollCourse(Course course)
@@ -20,10 +20,10 @@ internal class Student : Person
         Courses.Add(course); 
     }
 
-    protected override string ShowAllInfo()
-    {
-        return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}";
-    }
+    //protected override string ShowAllInfo()
+    //{
+    //    return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}";
+    //}
 
     public override string GetInfo(List<Enrollment> enrollments)
     {
@@ -37,7 +37,10 @@ internal class Student : Person
         return "6 weeks summer, and 2 weeks Christmas holidays.";
     }
 
-
+    public override string ShowMyIdentity()
+    {
+        return "Jeg er en elev.";
+    }
 
 
 }

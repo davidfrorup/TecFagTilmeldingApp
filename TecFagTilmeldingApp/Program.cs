@@ -1,7 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Reflection.Emit;
+using TecFagTilmeldingApp.Animals;
 using TecFagTilmeldingApp.Codes;
 using TecFagTilmeldingApp.Models;
+using TecFagTilmeldingApp.Personer;
+using TecFagTilmeldingApp.Animals;
+using TecFagTilmeldingApp.WordCount;
 
 
 // https://prod.liveshare.vsengsaas.visualstudio.com/join?880C701B0C1EFF4EF3306C775FFB97016F1B
@@ -39,26 +43,99 @@ Console.WriteLine($"{oop.Name} Teacher: {personalInfo.FirstName} {personalInfo.L
 //grundlæggendeProgrammering.WriteText();
 
 
-while(true)
+//while (true)
+//{
+//    Console.Write("Indtast tallet 1 for at afspille lyden: ");
+//    string talInput = Console.ReadLine();
+
+//    if (talInput == "1")
+//    {
+//        string myCurrentDir = System.IO.Directory.GetCurrentDirectory();
+//        string appDir = System.IO.Path.Combine(myCurrentDir, @"MySounds\minlyd.wav");
+
+//        System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
+//        soundPlayer.SoundLocation = appDir;
+//        soundPlayer.Play();
+//    }
+
+//    else
+//    {
+//        Console.Clear();
+//    }
+//}
+
+
+while (true)
 {
-    Console.Write("Indtast tallet 1 for at afspille lyden: ");
-    string talInput = Console.ReadLine();
 
-    if (talInput == "1")
+    string text = "It's important to understand two fundamental points about the type system in .NET:\r\n\r\nIt supports the principle of inheritance. Types can derive from other types, called base types. The derived type inherits (with some restrictions) the methods, properties, and other members of the base type. The base type can in turn derive from some other type, in which case the derived type inherits the members of both base types in its inheritance hierarchy. All types, including built-in numeric types such as System.Int32 (C# keyword: int), derive ultimately from a single base type, which is System.Object (C# keyword: object). This unified type hierarchy is called the Common Type System (CTS). For more information about inheritance in C#, see Inheritance.\r\nEach type in the CTS is defined as either a value type or a reference type. These types include all custom types in the .NET class library and also your own user-defined types. Types that you define by using the struct keyword are value types; all the built-in numeric types are structs. Types that you define by using the class or record keyword are reference types. Reference types and value types have different compile-time rules, and different run-time behavior.\r\nThe following illustration shows the relationship between value types and reference types in the CTS.";
+
+    int wordCount = WordCounter.Count(text);
+
+    Console.WriteLine($"Antal forekomster af 'type' eller 'types': {wordCount}");
+
+    Console.ReadLine();
+}
+
+while (true)
+{
+    Console.WriteLine("Choose an animal:");
+    Console.WriteLine("1. Dog");
+    Console.WriteLine("2. Cat");
+
+    string choice = Console.ReadLine();
+
+    Animals animal;
+
+    switch (choice)
     {
-        string myCurrentDir = System.IO.Directory.GetCurrentDirectory();
-        string appDir = System.IO.Path.Combine(myCurrentDir, @"MySounds\minlyd.wav");
+        case "1":
+            animal = new Dog();
+            break;
 
-        System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
-        soundPlayer.SoundLocation = appDir;
-        soundPlayer.Play();
+        case "2":
+            animal = new Cat();
+            break;
+
+        default:
+            Console.Clear();
+            continue; 
     }
 
+    animal.MakeSound();
+    Console.Clear();
+   
+}
+
+
+
+while (true)
+{
+    if (true)
+    {
+        Elev elev = new Elev("Patrik", "Nielsen", new DateTime(1996, 8, 1));
+        Lærer lærer = new Lærer("Niels", "Olesen", new DateTime(1971, 2, 23));
+
+        elev.Greet();
+        Console.WriteLine(elev.ShowMyIdentity());
+        Console.WriteLine();
+        lærer.Greet();
+        Console.WriteLine(lærer.ShowMyIdentity());
+        
+
+
+
+        Console.ReadLine();
+    }
     else
     {
         Console.Clear();
     }
 }
+
+
+
+
 
 
 
@@ -138,9 +215,9 @@ while (true)
 Teacher teacher = new Teacher("Niels", "Olesen", new DateTime(1971, 2, 23), "CIT");
 string teacherInfo = teacher.GetInfo(enrollments);
 Console.WriteLine(teacherInfo);
-        
 
-        static Course SelectCourse(List<Course> courses)
+
+static Course SelectCourse(List<Course> courses)
 {
     Console.WriteLine("Vælg et fag:");
 
@@ -176,7 +253,7 @@ Console.WriteLine(teacherInfo);
 
     return null; // Ugyldigt input
 }
-    
+
 
 
 

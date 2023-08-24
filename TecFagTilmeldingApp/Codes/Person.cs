@@ -19,7 +19,7 @@ internal abstract class Person
 
     private AgeConverter _ageConverter;
 
-    public Person(string firstName, string lastName, DateTime birthDate)
+    protected Person(string firstName, string lastName, DateTime birthDate)
     {
         PersonalInfo = new() { FirstName = firstName, LastName = lastName };
         BirthDate = birthDate;
@@ -41,12 +41,12 @@ internal abstract class Person
         return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}";
     }
 
-    protected abstract string ShowAllInfo();
+    //protected abstract string ShowAllInfo();
 
-    protected virtual string ShowAllInfo2()
-    {
-        return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}";
-    }
+    //protected virtual string ShowAllInfo2()
+    //{
+    //    return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}";
+    //}
 
     public virtual string GetInfo(List<Enrollment> enrollments)
     {
@@ -75,7 +75,12 @@ internal abstract class Person
     }
 
 
+    public virtual string SayHello(string rolle, string navn)
+    {
+        return $"Hej, jeg er en {rolle} og jeg hedder {PersonalInfo.FirstName}.";
+    }
 
+    public abstract string ShowMyIdentity();
 
 
 }

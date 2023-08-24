@@ -16,19 +16,19 @@ internal class Teacher : Person
     {
         Department = department;
         string fullname = ShowFullName();
-        string DefaultInfo = ShowAllInfo2();
+        //string DefaultInfo = ShowAllInfo2();
 
     }
 
-    protected override string ShowAllInfo()
-    {
-        return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}, department {Department}";
-    }
+    //protected override string ShowAllInfo()
+    //{
+    //    return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}, department {Department}";
+    //}
 
-    protected override string ShowAllInfo2()
-    {
-        return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}, department {Department}";
-    }
+    //protected override string ShowAllInfo2()
+    //{
+    //    return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}, department {Department}";
+    //}
 
     public string GetInfo(List<Enrollment> enrollments)
     {
@@ -52,6 +52,10 @@ internal class Teacher : Person
         return "3 weeks summer, and 3 weeks optional holidays.";
     }
 
+    public override string ShowMyIdentity()
+    {
+        return "Jeg er en lærer.";
+    }
 
 
 }
