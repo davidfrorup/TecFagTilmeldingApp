@@ -20,15 +20,26 @@ internal class Student : Person
         Courses.Add(course); 
     }
 
+
+
+    public override List<string> GetInfo(List<Enrollment> enrollments)
+    {
+        List<string> info = new();
+        foreach (Enrollment enrollment in enrollments)
+        {
+            if (enrollment.Student.PersonalInfo.FirstName == PersonalInfo.FirstName && enrollment.Student.PersonalInfo.LastName == PersonalInfo.LastName)
+            {
+                info.Add(enrollment.Course.Name);
+            }
+        }
+
+        return info;
+    }
+
+
     protected override string ShowAllInfo()
     {
         return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}";
-    }
-
-    public override string GetInfo(List<Enrollment> enrollments)
-    {
-        var studentEnrollments = enrollments.Where(e => e.Student == this).Select(e => e.Course.Name).ToList();
-        return $"Elev: {PersonalInfo.FirstName} {PersonalInfo.LastName}\nTilmeldte fag: {string.Join(", ", studentEnrollments)}";
     }
 
 

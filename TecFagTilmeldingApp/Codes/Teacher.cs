@@ -20,6 +20,21 @@ internal class Teacher : Person
 
     }
 
+    public override List<string> GetInfo(List<Enrollment> enrollments)
+    {
+        List<string> info = new();
+        foreach (Enrollment enrollment in enrollments)
+        {
+            if (enrollment.Course.Teacher.FirstName == PersonalInfo.FirstName && enrollment.Course.Teacher.LastName == PersonalInfo.LastName)
+            {
+                info.Add(enrollment.Course.Name);
+            }
+        }
+
+        return info;
+    }
+
+
     protected override string ShowAllInfo()
     {
         return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}, department {Department}";
@@ -30,21 +45,6 @@ internal class Teacher : Person
         return $"{PersonalInfo.FirstName} {PersonalInfo.LastName}, department {Department}";
     }
 
-    public string GetInfo(List<Enrollment> enrollments)
-    {
-        var relevantEnrollments = enrollments.Where(enrollment => enrollment.Teacher == this).Select(enrollment => enrollment.Course);
-
-        StringBuilder info = new StringBuilder();
-
-        info.AppendLine($"{PersonalInfo.FirstName} {PersonalInfo.LastName} underviser i følgende kurser:");
-
-        foreach (var course in relevantEnrollments)
-        {
-            info.AppendLine(course.Name);
-        }
-
-        return info.ToString();
-    }
 
     
     public override string ShowHolidays()

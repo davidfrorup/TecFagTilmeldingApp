@@ -39,34 +39,32 @@ Console.WriteLine($"{oop.Name} Teacher: {personalInfo.FirstName} {personalInfo.L
 //grundlæggendeProgrammering.WriteText();
 
 
-while(true)
-{
-    Console.Write("Indtast tallet 1 for at afspille lyden: ");
-    string talInput = Console.ReadLine();
+//while(true)
+//{
+//    Console.Write("Indtast tallet 1 for at afspille lyden: ");
+//    string talInput = Console.ReadLine();
 
-    if (talInput == "1")
-    {
-        string myCurrentDir = System.IO.Directory.GetCurrentDirectory();
-        string appDir = System.IO.Path.Combine(myCurrentDir, @"MySounds\minlyd.wav");
+//    if (talInput == "1")
+//    {
+//        string myCurrentDir = System.IO.Directory.GetCurrentDirectory();
+//        string appDir = System.IO.Path.Combine(myCurrentDir, @"MySounds\minlyd.wav");
 
-        System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
-        soundPlayer.SoundLocation = appDir;
-        soundPlayer.Play();
-    }
+//        System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
+//        soundPlayer.SoundLocation = appDir;
+//        soundPlayer.Play();
+//    }
 
-    else
-    {
-        Console.Clear();
-    }
-}
+//    else
+//    {
+//        Console.Clear();
+//    }
+//}
 
 
 
 List<Enrollment> enrollments = new List<Enrollment>();
-
 List<Student> students = new List<Student>();
 List<Course> courses = Utility.CreateCourses(Utility.CreateTeachers());
-
 
 
 Console.WriteLine("Ingen elever er tilmeldt endnu");
@@ -89,8 +87,6 @@ while (true)
             student.EnrollCourse(selectedCourse);
             students.Add(student);
 
-            // Tilføj tilmeldingen til enrollments
-            enrollments.Add(new Enrollment(student, selectedCourse, null));
 
             Console.WriteLine($"\n{student.PersonalInfo.FirstName} {student.PersonalInfo.LastName} er nu tilmeldt {selectedCourse.Name}");
         }
@@ -132,13 +128,7 @@ while (true)
     {
         Console.WriteLine("Ugyldig fødselsdato.");
     }
-}
-
-// Vis lærerinformation
-Teacher teacher = new Teacher("Niels", "Olesen", new DateTime(1971, 2, 23), "CIT");
-string teacherInfo = teacher.GetInfo(enrollments);
-Console.WriteLine(teacherInfo);
-        
+}        
 
         static Course SelectCourse(List<Course> courses)
 {

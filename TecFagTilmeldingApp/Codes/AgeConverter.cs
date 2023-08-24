@@ -9,10 +9,11 @@ namespace TecFagTilmeldingApp.Codes;
 internal struct AgeConverter
 {
 
-    //public int Age { get; set; }
-    public int _age;
+    public int Age { get; set; }
 
-    
-
+    public AgeConverter(DateTime birthDate)
+    {
+        Age = DateTime.Now.Year - birthDate.Year;
+    }
 
 }

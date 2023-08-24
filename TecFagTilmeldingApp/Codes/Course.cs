@@ -24,14 +24,14 @@ internal class Course
 
     }
 
-    public string WriteText(string valuetoDisplay)
+    public string WriteText(string valueToDisplay)
     {
-        return $"Hello {valuetoDisplay}";
+        return $"Hello {valueToDisplay}!";
     }
 
-    public string WriteText(String valuetoDisplay, int alder)
+    public string WriteText(string valueToDisplay, int alder)
     {
-        return $"Hello {valuetoDisplay}, du er {alder}";
+        return $"Hello {valueToDisplay}!, du er {alder.ToString()} år gammel.";
     }
 
 

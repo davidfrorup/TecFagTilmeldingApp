@@ -10,17 +10,12 @@ namespace TecFagTilmeldingApp.Codes
     {
 
         public Student Student { get; set; }
-        public Course Course { get; set; }
-        public Teacher Teacher { get; set; }
+        public Course? Course { get; set; }
 
-        public Enrollment(Student student, Course course, Teacher teacher)
+        public Enrollment(Student student, Course? course)
         {
             Student = student;
             Course = course;
-            Teacher = teacher;
-
-            var enrollment = new Enrollment(student, course, teacher);
-
         }
 
 
