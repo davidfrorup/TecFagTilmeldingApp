@@ -1,4 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿//Dette er min branch for øvelser.
+
+
 using System.Reflection.Emit;
 using TecFagTilmeldingApp.Animals;
 using TecFagTilmeldingApp.Codes;
